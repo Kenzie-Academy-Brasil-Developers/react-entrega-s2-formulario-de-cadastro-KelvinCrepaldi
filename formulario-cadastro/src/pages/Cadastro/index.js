@@ -1,4 +1,4 @@
-import { TextField, FormLabel, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -9,7 +9,10 @@ const Cadastro = () => {
   const history = useHistory();
 
   const formSchema = yup.object().shape({
-    name: yup.string().required("Nome obrigatório"),
+    name: yup
+      .string()
+      .required("Nome obrigatório")
+      .matches(/^([a-zA-Zà-úÀ-Ú ]|\\s+)+$/, "O nome deve conter apenas letras"),
     email: yup
       .string()
       .required("Email obrigatório")

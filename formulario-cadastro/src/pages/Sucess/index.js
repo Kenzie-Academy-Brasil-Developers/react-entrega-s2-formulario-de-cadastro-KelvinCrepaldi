@@ -9,7 +9,6 @@ const Sucesso = () => {
   const history = useHistory();
 
   const handleBackPage = () => {
-    console.log(history);
     history.goBack();
   };
 
@@ -19,7 +18,7 @@ const Sucesso = () => {
       <Container>
         <h1>Bem Vindo, {params.user}!</h1>
         <img src={logo} alt="welcome"></img>
-        <Button variant="outlined" onClick={handleBackPage}>
+        <Button variant="outlined" onClick={handleBackPage} size="large">
           Voltar
         </Button>
       </Container>
